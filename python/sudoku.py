@@ -79,7 +79,12 @@ model.addConstrs((
 
 model.optimize()
 
-model.write('sudoku.lp')
+# Commented out because I really don't need it.
+if len(sys.argv) > 2:
+    out_lp_file = sys.argv[2]
+else:
+    out_lp_file = '../model_files/sudoku1.lp'
+model.write(out_lp_file)
 
 print('')
 print('Solution:')
