@@ -58,7 +58,12 @@ n = int(sys.argv[1])
 
 # Create n random points
 
-random.seed(1)
+if len(sys.argv) < 3:
+    random.seed(1)
+elif sys.argv[2] == 'rand':
+    pass
+else:
+    random.seed(int(sys.argv[2]))
 points = [(random.randint(0, 100), random.randint(0, 100)) for i in range(n)]
 x, y = zip(*points)
 plt.plot(x, y, 'o')
